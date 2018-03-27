@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>com.nathantreid.action-web-api</id>
+    <name>Action Web API</name>
+    <version>0.0.1</version>
+    <vendor email="nathan-code+idea@nathantreid.com" url="http://www.nathantreid.com">Nathan Reid</vendor>
+
+    <description><![CDATA[
+    Automate IDE actions via an HTTP API. This plugin enables you to run any built-in or third-party plugin actions
+    via an HTTP api.
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!--&lt;!&ndash; uncomment to enable plugin in all products-->
+    <idea-version since-build="173" until-build="LATEST"/>
+    <depends>com.intellij.modules.lang</depends>
+    <!--&ndash;&gt;-->
+
+    <extensions defaultExtensionNs="com.intellij">
+
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <action id="ActionWebAPI.ToggleActionNotifications" class="com.nathantreid.actionWebApi.actions.ToggleActionNotifications" text="Toggle Action Notifications" description="Toggles action notifications"/>
+    </actions>
+
+    <application-components>
+        <component>
+            <implementation-class>com.nathantreid.actionWebApi.HttpService</implementation-class>
+        </component>
+        <component>
+            <implementation-class>com.nathantreid.actionWebApi.ActionWatcher</implementation-class>
+        </component>
+    </application-components>
+</idea-plugin>
